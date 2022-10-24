@@ -9,10 +9,20 @@ var r2=3;
 var d=1;
 let extraCnv;
 
+var song;
+
+function preload(){ // set up a preload function  
+  // load a sound effect file from Sound folder 
+  song = loadSound('SE.mp3'); 
+}
+
 function setup() { 
 //   createCanvas(innerWidth, innerHeight);
   ellipseMode(RADIUS);
   angleMode(DEGREES);
+
+  song.play();
+
 } 
 
 function draw() { 
