@@ -1,21 +1,53 @@
-const socket = new WebSocket (`ws://localhost/`)
-
 document.body.style.margin   = 0
 document.body.style.overflow = `hidden`
+document.body.style.backgroundImage = "url('giphy.gif')";
 
-const cnv = document.createElement (`canvas`)
-cnv.width  = innerWidth
-cnv.height = innerHeight
+var r=30;
+var r1=7;
+var r2=3;
 
-document.body.appendChild (cnv)
+var d=1;
+let extraCnv;
 
-const ctx = cnv.getContext (`2d`)
-ctx.fillStyle = `turquoise`
-ctx.fillRect (0, 0, cnv.width, cnv.height)
+function setup() { 
+//   createCanvas(innerWidth, innerHeight);
+  ellipseMode(RADIUS);
+  angleMode(DEGREES);
+} 
 
-const side = Math.min (cnv.width, cnv.height) / 3
-const x_pos = (cnv.width / 2)  - (side / 2)
-const y_pos = (cnv.height / 2) - (side / 2)
+function draw() { 
+//    background(0);
+createCanvas(innerWidth-200, innerHeight-100);
+  
+  drawFish(mouseX,mouseY,d);
+}
 
-ctx.fillStyle = `deeppink`
-ctx.fillRect (x_pos, y_pos, side, side)
+function drawFish(x1,y1,dir){
+  strokeWeight(0); 
+   //tail
+  fill(255,136,75);
+  arc(dir*(x1-35),y1,random(r-7,r-10),r-10,random(dir*90+45,dir*90+50),random(dir*90+130,dir*90+135));
+  //tail
+  fill(255,136,75);
+  arc(dir*(x1-35),y1,random(r-7,r-10),r-10,random(dir*90+45,dir*90+50),random(dir*90+130,dir*90+135));
+  
+  //body
+  fill(147,125,194);
+  // fill(254,206,112);
+  ellipse(x1,y1,r+10,r-7);
+  //mouth
+  strokeWeight(2);
+  stroke(255,87,127);
+  curve(dir*(x1+40),y1-20,dir*(x1+30),y1+12,dir*(x1+20),y1+10,dir*(x1+25),y1);
+  //dots
+  fill(255,211,132);
+  strokeWeight(0);
+  ellipse(dir*(x1+10),y1,r1,r1);
+  //eyes
+  strokeWeight(0);
+  fill(255);
+  ellipse(dir*(x1+20),y1-5,r1,r1);
+    //eyeball
+  fill(0);
+  ellipse(dir*(x1+22),y1-5,r2,r2);
+}
