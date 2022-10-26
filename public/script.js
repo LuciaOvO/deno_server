@@ -16,19 +16,27 @@ function preload(){ // set up a preload function
   song = loadSound('SE.mp3'); 
 }
 
+function mousePressed () {
+
+  song.play();
+  
+  }
+  
+
 function setup() { 
-//   createCanvas(innerWidth, innerHeight);
+  createCanvas(innerWidth, innerHeight);
   ellipseMode(RADIUS);
   angleMode(DEGREES);
 } 
 
 function draw() { 
-//    background(0);
-createCanvas(innerWidth-200, innerHeight-100);
-  
+
+  clear ()
+
   drawFish(mouseX,mouseY,d);
 }
 
+  
 function drawFish(x1,y1,dir){
   strokeWeight(0); 
    //tail
@@ -57,8 +65,4 @@ function drawFish(x1,y1,dir){
     //eyeball
   fill(0);
   ellipse(dir*(x1+22),y1-5,r2,r2);
-}
-
-function mousePressed() {
-    song.play();
 }
