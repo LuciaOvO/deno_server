@@ -20,9 +20,6 @@ function setup() {
 //   createCanvas(innerWidth, innerHeight);
   ellipseMode(RADIUS);
   angleMode(DEGREES);
-
-  song.play();
-
 } 
 
 function draw() { 
@@ -60,4 +57,8 @@ function drawFish(x1,y1,dir){
     //eyeball
   fill(0);
   ellipse(dir*(x1+22),y1-5,r2,r2);
+}
+
+function mousePressed() {
+    song.play();
 }
