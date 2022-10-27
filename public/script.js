@@ -2,11 +2,13 @@ document.body.style.margin   = 0
 document.body.style.overflow = `hidden`
 document.body.style.backgroundImage = "url('giphy.gif')";
 
-var r=30;
+var r=40;
 var r1=7;
 var r2=3;
 
 var d=1;
+
+
 let extraCnv;
 
 var song;
